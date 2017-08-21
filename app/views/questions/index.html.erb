@@ -1,0 +1,9 @@
+<div class="postpage">
+  <% @question.each do |question|%>
+    <div class="postpage_question">
+      <%= image_tag("#{question.image}", :class => "question_image") %><br>
+      <%= question.text %>
+      <span class="name"><%= question.name %></span>
+    </div>
+  <%end%>
+</div>

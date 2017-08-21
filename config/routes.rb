@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resorces :site,
+ root 'questions#index'
 end
