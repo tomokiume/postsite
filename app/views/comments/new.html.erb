@@ -1,0 +1,8 @@
+<div class="comment">
+  <%=form_tag("/questions/#{@question.id}/comments", method: :post) do %>
+    <ul>
+      <li><textarea type="text" cols="30" rows="30" placeholder="コメント" name="text"></textarea></li>
+      <li><input type="submit" value="送信"></li>
+    </ul>
+  <% end %>
+</div>

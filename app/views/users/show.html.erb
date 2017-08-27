@@ -1,0 +1,13 @@
+<div class="index1">
+  <p><%= @user.name%>さんの投稿一覧</p>
+  <%= link_to 'フォロワーを見る' ,"#{@user.id}/followers", method: :get%>
+  <% if user_signed_in? && current_user.id != @user.id %>
+    <%= link_to 'フォローする' ,"/users/#{@user.id}/likes" ,method: :post %>
+  <% end %>
+  <% @question.each do |question|%>
+    <%= image_tag("#{question.image}") %><br>
+    <%= question.text %>
+    <%= question.name %>
+  <%end%>
+
+</div>
