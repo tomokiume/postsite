@@ -7,7 +7,5 @@ Rails.application.routes.draw do
   resources :users do
     resources :likes
   end
-
   get 'users/:id/followers', to: 'users#follower'
-
 end

@@ -2,6 +2,7 @@
   <h1>投稿ページ</h1>
   <%=form_tag('/questions', method: :post) do %>
     <ul>
+      <li><input placeholder="名前" type="text" name="name"></li>
       <li><input placeholder="写真のURL" type="text" name="image"></li>
       <li><textarea name="text" cols="30" rows="10" placeholder="コメント" name="text"></textarea></li>
       <li><input type="submit" value="送信"></li>
