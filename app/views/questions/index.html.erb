@@ -1,9 +1,22 @@
 <div class="postpage">
-  <% @question.each do |question|%>
+  <% @questions.each do |question|%>
     <div class="postpage_question">
       <%= image_tag("#{question.image}", :class => "question_image") %><br>
       <%= question.text %>
-      <span class="name"><%= question.name %></span>
+      <span class="name"><%= link_to "#{question.name}", user_path(question.user_id) %></span>
+      <% if user_signed_in? && current_user.id == question.user_id %>
+        <div class="delete">
+          <%= button_to '削除', "questions/#{question.id}", method: :delete %>
+        </div>
+      <% end %>
+      <% if user_signed_in? && current_user.id != question.user_id %>
+        <div class="comments">
+          <%= button_to 'コメントする', "/questions/#{question.id}/comments/new", method: :get %>
+        </div>
+      <% end %>
+        <div class="comments">
+          <%= button_to 'コメント一覧を見る', "/questions/#{question.id}", method: :get%>
+        </div>
     </div>
   <%end%>
 </div>
